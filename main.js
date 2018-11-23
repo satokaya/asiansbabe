@@ -25,7 +25,7 @@ var keyword = getKeywordFormUrl('q');
  function userWatchingUrl() {
 	var url = window.location.href ;
 	 var res = url.split("/");
-	 if(res[3]=='w')
+	 if(res[3]=='w'||res[3]=='picture')
 	 {
 		 return 1;
 	 }
