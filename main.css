@@ -6,7 +6,8 @@ body{background-color:#000000;} .row {
 
 .w100 {
 height:100%;
-}
+}.poster_title a
+{color:#FFFFFF;}
 .poster_title
 {color: #FFFFFF;
 font-weight:bold;
@@ -71,10 +72,10 @@ margin:10px;
 }
 .poster_feed img{
 height:auto;
-margin:8px;
+margin:2px;
 border-color: #FFFFFF;
     border-style: solid;
-    border-width: 4px;
+    border-width: 3px;
 }
 
 video{

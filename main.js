@@ -93,7 +93,7 @@ $(".search_staff").on("submit",function (event) {
 					var response=http.responseText;
 					var	 res_obj=JSON.parse(http.responseText);
 					//alert(response);
-					//console.log(res_obj)
+					console.log(res_obj)
 					if(res_obj.length==0)
 					{
 						$('.main_con').html('<div align="center" class="error_404_text" >404 NOT Found...</div>');
@@ -133,7 +133,24 @@ function fetchListFormJSONobj(res_obj)
 {
 	$.each(res_obj, function(idx, obj) 
 	{
-								$('.main_con').append('<div align="center" class="poster_feed" ><a href="https://www.mov789.com/w/'+obj['id_msg']+'"><img src="'+chageSRCtofit(obj['screenshot'])+'" /></a><br><div class="poster_title">['+obj['subject']+']</div></div>');
+			//'+chageSRCtofit(obj['screenshot'])+'
+			//chageSRCtofit(obj['screenshot']);
+			//console.log(obj['screenshot'])	
+			var	 res_ss=JSON.parse(obj['screenshot']); 
+			//console.log(res_ss)	
+			//<a href="https://asiansbabe.com/picture/2760" target="_blank"><img class="poster" data-src="https://1.bp.blogspot.com/-3PMsn0xkVeY/W-_iWUl4lLI/AAAAAAAAJQE/AazZjWe6lBo4_sIwC6v0Wckd1UJJ6JmRgCLcBGAs/s1600/DAE1002754.jpg" /></a>
+			var ss='';
+				$.each(res_ss, function(i, j) 
+				{
+					ss=ss+'<a href="https://asiansbabe.com/picture/'+i+'" target="_blank"><img class="poster" src="'+chageSRCtofit(j)+'" /></a>';
+				});
+				
+					//'+chageSRCtofit(obj['screenshot'])+'
+					//chageSRCtofit(obj['screenshot']);
+					//alert(ss)
+			$('.main_con').append('<div align="center" class="poster_feed" >'+ss+'<br><div class="poster_title">[<a href="https://www.asiansbabe.com/gallery/'+obj['id_msg']+'">'+obj['subject']+'</a>]</div></div>');
+			
+			//$('.main_con').append('<div align="center" class="poster_feed" ><a href="https://www.asiansbabe.com/gallery/'+obj['id_msg']+'"><img src="" /></a><br><div class="poster_title">['+obj['subject']+']</div></div>');
 	});
 }
 function chageSRCtofit(imageDataSource)
@@ -161,7 +178,7 @@ function chageSRCtofit(imageDataSource)
 
 
 function sendRequestServer(sort_type,increment,limit_member) {
-console.log("req_server"+page);
+//console.log("req_server"+page);
  		 var fd = new FormData();
         fd.append('keyword',keyword);
 		fd.append('sort_type',sort_type);
